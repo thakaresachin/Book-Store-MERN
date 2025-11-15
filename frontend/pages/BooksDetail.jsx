@@ -33,15 +33,15 @@ const BooksDetail = () => {
 
         {/* LEFT IMAGE SECTION */}
         <div className="flex justify-center items-center p-10 border-r border-white/10">
-          <div className="w-[330px] h-[460px] rounded-xl overflow-hidden border border-white/20 
-                          shadow-[0_15px_40px_rgba(0,0,0,0.6)]">
-            <img
-              src={`http://localhost:3000/uploads/${product.image}`}
-              alt={product.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
+  <div className="w-[330px] h-[460px] rounded-xl overflow-hidden border border-white/20 
+                  shadow-[0_15px_40px_rgba(0,0,0,0.6)]">
+    <img
+      src={product.image}   // ← FIXED HERE
+      alt={product.title}
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
 
         {/* RIGHT CONTENT SECTION */}
         <div className="p-10 flex flex-col justify-center space-y-6 text-white">

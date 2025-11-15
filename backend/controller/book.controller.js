@@ -25,7 +25,8 @@ export const addBook = async (req, res) => {
         .json({ message: "Image is required" });
     }
 
-    const image = req.file.filename;
+    const image = req.file.path;   // Cloudinary public URL
+
 
     const newBook = new Book({
       title,

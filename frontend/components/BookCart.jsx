@@ -17,7 +17,7 @@ const BookCart = ({ book }) => {
       >
         {/* IMAGE */}
         <img
-          src={`http://localhost:3000/uploads/${book.image}`}
+          src={book.image}      // ← FIXED HERE
           className="absolute inset-0 w-full h-full object-cover
                      group-hover:scale-110 duration-700"
         />
@@ -53,16 +53,16 @@ const BookCart = ({ book }) => {
 
       {/* ADD TO CART BUTTON */}
       <button
-  onClick={() => addtocart(book)}
-  className="mt-4 w-full flex justify-end pr-4"
->
-  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl 
-                  border border-white/20 flex items-center justify-center
-                  hover:bg-white/20 hover:scale-110 transition-all duration-300
-                  shadow-[0_5px_20px_rgba(255,200,50,0.4)] cursor-pointer">
-    <img src={assets.cart_icon} className="w-6 opacity-90" />
-  </div>
-</button>
+        onClick={() => addtocart(book)}
+        className="mt-4 w-full flex justify-end pr-4"
+      >
+        <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl 
+                        border border-white/20 flex items-center justify-center
+                        hover:bg-white/20 hover:scale-110 transition-all duration-300
+                        shadow-[0_5px_20px_rgba(255,200,50,0.4)] cursor-pointer">
+          <img src={assets.cart_icon} className="w-6 opacity-90" />
+        </div>
+      </button>
 
     </div>
   );

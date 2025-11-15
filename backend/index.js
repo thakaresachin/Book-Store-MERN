@@ -3,23 +3,22 @@ import dotenv from "dotenv";
 import Dbconnect from "./config/Dbconnect.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
 import userRouter from "./router/user.route.js";
 import adminRouter from "./router/admin.route.js";
 import bookRouter from "./router/Book.route.js";
 import cartRouter from "./router/cart.route.js";
 import orderRouter from "./router/order.route.js";
 import addressRouter from "./router/address.route.js";
-
 import path from "path";
+
+const app = express();
+dotenv.config();
 import { fileURLToPath } from "url";
 
 // Fix dirname (ESM)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
-dotenv.config();
 
 // CORS
 const allowedOrigins = ["http://localhost:5173"];

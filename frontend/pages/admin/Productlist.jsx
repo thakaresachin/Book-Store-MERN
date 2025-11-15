@@ -49,7 +49,7 @@ const Productlist = () => {
                     "
                   >
                     <img
-                      src={`http://localhost:3000/uploads/${product.image}`}
+                      src={product.image}   // ← FIXED: direct Cloudinary URL
                       alt={product.title}
                       className="w-full h-full object-cover"
                     />
