@@ -1,7 +1,24 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { categories } from "../src/assets/assets";
 import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
+
+// Import book images
+import book1 from "../src/assets/books/book1.jpg";
+import book2 from "../src/assets/books/book2.jpg";
+import book3 from "../src/assets/books/book3.jpg";
+import book4 from "../src/assets/books/book4.jpg";
+import book5 from "../src/assets/books/book5.jpg";
+import book6 from "../src/assets/books/book6.jpg";
+
+// ✅ FIX: Define categories OUTSIDE the component
+const categories = [
+  { _id: 1, name: "Fiction", image: book1 },
+  { _id: 2, name: "Non-Fiction", image: book2 },
+  { _id: 3, name: "History", image: book3 },
+  { _id: 4, name: "Poetry", image: book4 },
+  { _id: 5, name: "Thrill", image: book5 },
+  { _id: 6, name: "Astronaut", image: book6 },
+];
 
 const Search = () => {
   const { booksData, setselectCategory } = useContext(AppContext);
@@ -20,7 +37,7 @@ const Search = () => {
     );
   });
 
-  // CLOSE DROPDOWN CLICK OUTSIDE
+  // CLOSE ON OUTSIDE CLICK
   useEffect(() => {
     const click = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -100,7 +117,8 @@ const Search = () => {
                   onClick={() => navigate(`/books/${book._id}`)}
                 >
                   <img
-                    src={`http://localhost:3000/uploads/${book.image}`}
+                    src={`/assets/books/${book.image}`}
+                    alt={book.title}
                     className="w-10 h-14 sm:w-12 sm:h-16 rounded-lg object-cover"
                   />
 
