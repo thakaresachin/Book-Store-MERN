@@ -25,33 +25,16 @@ const Navbar = () => {
           py-4 flex items-center justify-between
         "
       >
-        {/* LOGO + NAME */}
-        <div
-          onClick={() => navigate("/")}
-          className="flex items-center gap-4 cursor-pointer group"
-        >
-          <div
-            className="
-              w-10 h-10 md:w-12 md:h-12 rounded-xl
-              bg-gradient-to-br from-indigo-600/40 via-purple-500/40 to-blue-500/40
-              shadow-[0_0_25px_rgba(99,102,241,0.55)]
-              flex items-center justify-center
-              border border-white/10
-              animate-[float_4s_ease-in-out_infinite]
-              group-hover:scale-110 transition duration-300
-            "
-          >
-            <img
-              src='https://cdn-icons-png.flaticon.com/512/3342/3342137.png'
-              className="w-6 md:w-7 opacity-90"
-              alt="book logo"
-            />
-          </div>
-
+        {/* BRAND NAME ONLY (PREMIUM) */}
+        <div onClick={() => navigate("/")} className="cursor-pointer select-none">
           <h1
             className="
-              text-2xl md:text-3xl font-bold font-serif text-white 
-              group-hover:text-indigo-300 transition
+              text-3xl md:text-4xl font-bold font-serif
+              bg-gradient-to-r from-indigo-400 via-purple-400 to-blue-400
+              bg-clip-text text-transparent
+              tracking-wide
+              drop-shadow-[0_0_20px_rgba(99,102,241,0.35)]
+              hover:scale-105 transition duration-300
             "
           >
             BookVerse
@@ -76,6 +59,7 @@ const Navbar = () => {
 
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-5 md:gap-6">
+
           {/* CART */}
           <div className="relative cursor-pointer" onClick={() => navigate("/cart")}>
             <FaShoppingCart className="text-xl md:text-2xl text-white hover:text-indigo-300 transition" />
@@ -91,7 +75,7 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* LOGIN / LOGOUT — DESKTOP */}
+          {/* LOGIN / LOGOUT (DESKTOP) */}
           <div className="hidden md:flex items-center gap-4">
             {user ? (
               <>
@@ -139,7 +123,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* MOBILE MENU (SLIDE) */}
+      {/* MOBILE MENU SLIDE */}
       <div
         className={`md:hidden fixed top-0 right-0 h-full w-64 bg-[#0b0c10]/95 backdrop-blur-xl border-l border-white/10 shadow-xl transition-transform duration-300 z-[9998] ${
           openMenu ? "translate-x-0" : "translate-x-full"
@@ -147,7 +131,6 @@ const Navbar = () => {
       >
         <div className="p-6 flex flex-col gap-6">
 
-          {/* LINKS */}
           <button
             onClick={() => {
               navigate("/");
@@ -168,7 +151,6 @@ const Navbar = () => {
             Books
           </button>
 
-          {/* LOGIN / LOGOUT MOBILE */}
           {user ? (
             <>
               <button
@@ -211,15 +193,6 @@ const Navbar = () => {
           )}
         </div>
       </div>
-
-      {/* FLOAT ANIMATION */}
-      <style>{`
-        @keyframes float {
-          0% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-          100% { transform: translateY(0); }
-        }
-      `}</style>
     </>
   );
 };

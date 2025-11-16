@@ -1,56 +1,50 @@
 import React from "react";
-import { categories } from "../src/assets/assets";
-
-// AWWWARDS-STYLE ULTRA PREMIUM CATEGORY SHOWCASE
-// ✔ No logic changed
-// ✔ Cinematic grid with NO GAP
-// ✔ Dark luxury theme with gold glow accents
-// ✔ Full-bleed square cards similar to the screenshot you provided
+import Lottie from "lottie-react";
 
 const Category = () => {
   return (
-    <div className="my-20 text-center px-6">
-      {/* Heading */}
-      <h1 className="font-serif text-4xl md:text-6xl text-white drop-shadow-xl mb-12">
-        Browse Categories
-      </h1>
+    <div className="
+      w-full h-[350px] rounded-3xl relative overflow-hidden
+      bg-transparent
+      flex items-center justify-center
+    ">
 
-      {/* FULL-WIDTH SHOWCASE GRID (NO GAP) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-0 w-full">
-        {categories.map((category) => (
-          <div
-            key={category._id}
-            className="relative w-full h-[180px] md:h-[200px] overflow-hidden
-                       bg-black/40 backdrop-blur-2xl border border-white/10
-                       group transition-all duration-700 cursor-pointer"
-          >
-            {/* BACKGROUND IMAGE (CINEMATIC) */}
-            <img
-              src={category.image}
-              alt={category.name}
-              className="absolute inset-0 w-full h-full object-cover
-                         group-hover:scale-110 transition-all duration-700"
-            />
-
-            {/* DARK OVERLAY */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-            {/* GOLDEN SHINE */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-40
-                            bg-gradient-to-r from-transparent via-yellow-200/20 to-transparent
-                            translate-x-[-100%] group-hover:translate-x-[100%]
-                            rotate-[25deg] transition-all duration-[1200ms]
-                            pointer-events-none"></div>
-
-            {/* CATEGORY NAME */}
-            <div className="absolute bottom-5 left-6 z-10">
-              <p className="text-xl md:text-2xl font-serif tracking-wide text-white drop-shadow-lg group-hover:text-amber-300 transition-all duration-500">
-                {category.name}
-              </p>
-            </div>
-          </div>
-        ))}
+      {/* BACKGROUND GLOW */}
+      <div className="absolute inset-0">
+        <div className="absolute left-0 top-1/3 w-[25rem] h-[25rem] bg-purple-600/20 blur-[150px]"></div>
+        <div className="absolute right-0 bottom-0 w-[25rem] h-[25rem] bg-blue-500/20 blur-[150px]"></div>
       </div>
+
+      {/* GLASS LAYER */}
+      <div
+        className="
+          absolute inset-0 rounded-3xl
+          bg-white/5 backdrop-blur-2xl
+          border border-white/10
+          shadow-[0_0_40px_rgba(0,0,0,0.4)]
+          z-10
+        "
+      ></div>
+
+      {/* WALKING ANIMATION */}
+      <Lottie
+        animationData={null}
+        path="https://assets7.lottiefiles.com/packages/lf20_puciaact.json"
+        loop={true}
+        className="w-[280px] h-[280px] z-20"
+        style={{
+          animation: "walk 10s ease-in-out infinite",
+        }}
+      />
+
+      {/* ANIMATION KEYFRAMES */}
+      <style>{`
+        @keyframes walk {
+          0% { transform: translateX(-260px); }
+          50% { transform: translateX(260px); }
+          100% { transform: translateX(-260px); }
+        }
+      `}</style>
     </div>
   );
 };

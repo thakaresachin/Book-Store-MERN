@@ -17,22 +17,7 @@ const Footer = () => {
 
           {/* LOGO + NAME */}
           <div className="flex items-center gap-4">
-            <div
-              className="
-                w-14 h-14 rounded-xl
-                bg-gradient-to-br from-indigo-600/40 via-purple-500/40 to-blue-500/40
-                shadow-[0_0_25px_rgba(99,102,241,0.55)]
-                flex items-center justify-center
-                border border-white/10
-                animate-[float_4s_ease-in-out_infinite]
-              "
-            >
-              <img
-                src='https://cdn-icons-png.flaticon.com/512/3342/3342137.png'
-                className="w-8 opacity-90 drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
-                alt="book"
-              />
-            </div>
+            
 
             <h1 className="text-3xl font-serif tracking-wide text-white drop-shadow-xl">
               BookVerse

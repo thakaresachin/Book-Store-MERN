@@ -1,1 +1,7 @@
 @import "tailwindcss";
+/* Global fonts */
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+
