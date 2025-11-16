@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import bookImg from "../src/assets/hero_book.png";
+import { AppContext } from "../context/AppContext";
 
 const Hero = () => {
+      const {navigate}=useContext(AppContext)
   return (
     <section
       className="
@@ -34,27 +36,19 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <button
+          <button  onClick={()=>navigate('/books')}
             className="
               px-8 py-3 rounded-full 
               bg-gradient-to-r from-indigo-600 to-blue-600 
               text-white font-semibold 
               shadow-[0_10px_40px_rgba(70,80,255,0.5)] 
-              hover:scale-105 transition
+              hover:scale-105 transition cursor-pointer
             "
           >
             Shop Now
           </button>
 
-          <button
-            className="
-              px-8 py-3 rounded-full 
-              border border-indigo-400/40 text-indigo-200
-              hover:bg-white/5 backdrop-blur-xl font-semibold transition
-            "
-          >
-            Explore Now
-          </button>
+          
         </div>
       </div>
 

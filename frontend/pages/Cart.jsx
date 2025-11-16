@@ -73,7 +73,6 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen px-6 py-16 relative overflow-hidden bg-[#0b0c10]">
-
       {/* BACKGROUND GLOWS */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-24 -left-20 w-[26rem] h-[26rem] bg-indigo-700/20 blur-[150px]" />
@@ -81,11 +80,11 @@ const Cart = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-10">
-
         {/* LEFT SIDE */}
         <div className="flex-1">
           <h1 className="text-4xl md:text-5xl font-serif text-white mb-10">
-            Your Cart <span className="text-indigo-400 text-lg">({cartCount})</span>
+            Your Cart{" "}
+            <span className="text-indigo-400 text-lg">({cartCount})</span>
           </h1>
 
           {cart.length === 0 ? (
@@ -112,26 +111,36 @@ const Cart = () => {
                   <div className="flex items-center gap-4">
                     <div className="w-20 h-28 rounded-lg overflow-hidden border border-white/10">
                       <img
-                        src={`http://localhost:3000/uploads/${product.image}`}
+                        src={product.image}
+                        alt={product.title}
                         className="w-full h-full object-cover"
                       />
                     </div>
 
                     <div>
-                      <p className="text-white font-semibold text-lg">{product.title}</p>
+                      <p className="text-white font-semibold text-lg">
+                        {product.title}
+                      </p>
 
                       <div className="mt-2 flex items-center gap-2">
                         <p className="text-gray-400 text-sm">Qty:</p>
                         <select
                           value={product.quantity}
                           onChange={(e) =>
-                            updatecartitem(product._id, parseInt(e.target.value))
+                            updatecartitem(
+                              product._id,
+                              parseInt(e.target.value)
+                            )
                           }
                           className="bg-white/10 border border-white/20 text-white 
                                      rounded px-2 py-1 outline-none"
                         >
                           {[...Array(10)].map((_, i) => (
-                            <option key={i} value={i + 1} className="text-black">
+                            <option
+                              key={i}
+                              value={i + 1}
+                              className="text-black"
+                            >
                               {i + 1}
                             </option>
                           ))}
@@ -159,12 +168,14 @@ const Cart = () => {
         </div>
 
         {/* RIGHT SIDE SUMMARY */}
-        <div className="
+        <div
+          className="
           w-full max-w-sm 
           bg-white/5 backdrop-blur-xl 
           p-6 rounded-2xl border border-white/10
           shadow-[0_10px_40px_rgba(0,0,0,0.5)]
-        ">
+        "
+        >
           <h2 className="text-2xl font-serif text-white mb-4">Order Summary</h2>
 
           {/* ADDRESS */}
@@ -185,11 +196,13 @@ const Cart = () => {
             </button>
 
             {showAddress && (
-              <div className="
+              <div
+                className="
                 absolute top-12 left-0 w-full 
                 bg-black/60 backdrop-blur-xl border border-white/10
                 rounded-xl shadow-xl z-20 p-2
-              ">
+              "
+              >
                 {addresses.length ? (
                   addresses.map((addr) => (
                     <p
@@ -218,14 +231,20 @@ const Cart = () => {
           </div>
 
           {/* PAYMENT */}
-          <p className="text-gray-300 text-sm font-medium mt-6">Payment Method</p>
+          <p className="text-gray-300 text-sm font-medium mt-6">
+            Payment Method
+          </p>
           <select
             onChange={(e) => setPaymentOption(e.target.value)}
             value={paymentOption}
             className="w-full mt-2 bg-white/10 border border-white/20 text-white rounded px-3 py-2 outline-none"
           >
-            <option value="COD" className="text-black">Cash On Delivery</option>
-            <option value="Online" className="text-black">Online Payment</option>
+            <option value="COD" className="text-black">
+              Cash On Delivery
+            </option>
+            <option value="Online" className="text-black">
+              Online Payment
+            </option>
           </select>
 
           {/* TOTAL */}
@@ -248,7 +267,6 @@ const Cart = () => {
             {paymentOption === "COD" ? "Place Order" : "Pay Now"}
           </button>
         </div>
-
       </div>
     </div>
   );
